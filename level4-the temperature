@@ -1,0 +1,28 @@
+import sys
+import math
+
+# Auto-generated code below aims at helping you parse
+# the standard input according to the problem statement.
+
+n = int(input())  # the number of temperatures to analyze
+
+temperatures = input().split()  # a string with the N temperatures
+
+# Initialize variables to keep track of the closest temperature
+closest_temp = None
+closest_diff = float('inf')
+
+# Iterate through each temperature
+for temp in temperatures:
+    t = int(temp)  # convert the temperature to an integer
+    
+    # Calculate the absolute difference between the temperature and zero
+    diff = abs(t)
+    
+    # Check if the current temperature is closer to zero than the previously found closest temperature
+    if diff < closest_diff or (diff == closest_diff and t > closest_temp):
+        closest_temp = t
+        closest_diff = diff
+
+# Print the closest temperature to zero
+print(closest_temp if closest_temp is not None else 0)
